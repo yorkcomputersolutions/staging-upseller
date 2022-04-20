@@ -108,15 +108,23 @@ class Staging_Upseller {
      * @since 1.0
      */
     public function frontend_includes() {
-        include_once STAGINGUP_PATH . '/includes/class-stagingup-frontend-scripts.php';
-
         include_once STAGINGUP_PATH . '/includes/class-stagingup-login-page.php';
     }
 
+    /**
+     * Registers hooks when the plugin is initialized.
+     * 
+     * @since 1.0
+     */
     private function init_hooks() {
         add_action( 'init', array( $this, 'init' ), 0 );
     }
 
+    /**
+     * Class method called when the WordPress init action fires.
+     * 
+     * @since 1.0
+     */
     public function init() {
         if ( $this->is_request( 'frontend' ) ) {
             $options = get_option( 'staging_upseller', array() );

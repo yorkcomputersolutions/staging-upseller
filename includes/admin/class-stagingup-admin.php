@@ -19,6 +19,11 @@ class StagingUp_Admin {
         include_once __DIR__ . '/class-stagingup-settings.php';
     }
 
+    /**
+     * Initialize admin-related functionality when the WordPress init action is fired.
+     * 
+     * @since 1.0
+     */
     public function init() {
         $this->includes();
     }

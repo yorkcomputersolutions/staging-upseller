@@ -12,6 +12,11 @@ class StagingUp_AJAX {
         self::add_ajax_events();
     }
 
+    /**
+     * Sets the headers for AJAX.
+     * 
+     * @since 1.0
+     */
     private static function stagingup_ajax_headers() {
         if ( ! headers_sent() ) {
             send_origin_headers();
@@ -31,7 +36,7 @@ class StagingUp_AJAX {
 
         // phpcs:disable WordPress.Security.NonceVerification.Recommended
         if ( ! empty( $_GET['stagingup-ajax'] ) ) {
-            $wp_query->set( 'stagingup-ajax', sanitize_text_field( wp_unslash( $_GET['esh-ajax'] ) ) );
+            $wp_query->set( 'stagingup-ajax', sanitize_text_field( wp_unslash( $_GET['stagingup-ajax'] ) ) );
         }
 
         $action = $wp_query->get( 'stagingup-ajax' );
@@ -65,6 +70,11 @@ class StagingUp_AJAX {
         }
     }
 
+    /**
+     * Process import settings.
+     * 
+     * @since 1.0
+     */
     public static function import_settings() {
         if ( ! wp_verify_nonce( wp_unslash( $_POST['nonce'] ), 'stagingup_import_settings_nonce' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			wp_send_json_error( 'bad_nonce' );
@@ -91,7 +101,11 @@ class StagingUp_AJAX {
         }
     }
 
-
+    /**
+     * Process export settings.
+     * 
+     * @since 1.0
+     */
     public static function export_settings() {
         if ( ! wp_verify_nonce( wp_unslash( $_POST['nonce'] ), 'stagingup_export_settings_nonce' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			wp_send_json_error( 'bad_nonce' );

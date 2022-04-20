@@ -11,7 +11,8 @@ function update(text) {
         text += " ";
     }
     // Update code
-    result_element.innerHTML = text.replace(new RegExp("&", "g"), "&amp;").replace(new RegExp("<", "g"), "&lt;"); /* Global RegExp */
+    result_element.innerHTML = text;
+    //result_element.innerHTML = text.replace(new RegExp("&", "g"), "&amp;").replace(new RegExp("<", "g"), "&lt;").replace(new RegExp(">", "g"), "&gt;"); /* Global RegExp */
     // Syntax Highlight
     Prism.highlightElement(result_element);
 }

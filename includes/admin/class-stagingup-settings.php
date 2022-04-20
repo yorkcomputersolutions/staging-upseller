@@ -2,6 +2,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * StagingUp Settings class.
+ */
 class StagingUp_Settings {
     public static function init() {
         add_action( 'admin_menu', array( __CLASS__, 'add_options_page' ) );
@@ -55,6 +58,11 @@ class StagingUp_Settings {
         }
     }
 
+    /**
+     * Adds the settings page for Staging Upseller.
+     * 
+     * @since 1.0
+     */
     public static function add_options_page() {
         add_options_page(
             'Staging Upseller',
@@ -65,6 +73,11 @@ class StagingUp_Settings {
         );
     }
 
+    /**
+     * Renders the settings page for Staging Upseller.
+     * 
+     * @since 1.0
+     */
     public static function render_staging_upseller_page() {
         ?>
         <div class="wrap">
@@ -82,6 +95,11 @@ class StagingUp_Settings {
         <?php
     }
 
+    /**
+     * Adds the settings section and related settings for the login page.
+     * 
+     * @since 1.0
+     */
     public static function add_login_settings_section() {
         register_setting( 'staging_upseller', 'staging_upseller' );
 
@@ -267,17 +285,6 @@ class StagingUp_Settings {
             )
         );
         
-        
-
-        // Login page layout inputs
-        add_settings_field(
-            'login_layout_area',
-            'Login Page Layout',
-            array( __CLASS__, 'render_login_page_layout_inputs' ),
-            'staging-upseller',
-            'stagingup_login_settings_section'
-        );
-
         // Input label placement
         add_settings_field(
             'input_label_placement',
@@ -320,6 +327,17 @@ class StagingUp_Settings {
                 'value' => $options['login_sidebar_color'],
             )
         );
+        
+
+        // Login page layout inputs
+        add_settings_field(
+            'login_layout_area',
+            'Login Page Layout',
+            array( __CLASS__, 'render_login_page_layout_inputs' ),
+            'staging-upseller',
+            'stagingup_login_settings_section'
+        );
+
 
         // Ad area settings
         for ( $i = 0; $i < 8; $i++ ) {
@@ -341,7 +359,7 @@ class StagingUp_Settings {
             add_settings_field(
                 $ad_area_field_name,
                 'iFrame URL',
-                array( __CLASS__, 'render_login_ad_area_iframe_url_field' ),
+                array( __CLASS__, 'render_text_field' ),
                 'staging-upseller',
                 'stagingup_login_settings_section',
                 array(
@@ -404,6 +422,13 @@ class StagingUp_Settings {
         );
     }
 
+    /**
+     * Renders an image upload field, meant for converting the uploaded image to base64 in JavaScript.
+     * 
+     * @param array $args Arguments to render the field with.
+     * 
+     * @since 1.0
+     */
     public static function render_image_upload_base64_field( $args ) {
         ?>
         <input class="stagingup-image-upload-base64" id="<?php echo esc_attr( $args['id'] ); ?>" type="file" />
@@ -412,10 +437,17 @@ class StagingUp_Settings {
         <?php
     }
 
+    /**
+     * Renders a CSS editor field, utilizing Prism JS.
+     * 
+     * @param array $args Arguments to render the field with.
+     * 
+     * @since 1.0
+     */
     public static function render_css_editor_field( $args ) {
         ?>
         <div class="stagingup-css-editor-wrap" style="position: relative; height: 500px;">
-            <textarea placeholder="Enter Login Page CSS" id="editing" name="<?php echo esc_attr( $args['name'] ); ?>" spellcheck="false" oninput="update(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onkeydown="check_tab(this, event);"><?php echo htmlspecialchars_decode( esc_html( $args['value'] ) ); ?></textarea>
+            <textarea placeholder="Enter Login Page CSS" id="editing" name="<?php echo esc_attr( $args['name'] ); ?>" spellcheck="false" oninput="update(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onkeydown="check_tab(this, event);"><?php echo wp_specialchars_decode( $args['value'] ); ?></textarea>
             <pre id="highlighting" aria-hidden="true">
                 <code class="language-css" id="highlighting-content">
                 </code>
@@ -424,6 +456,13 @@ class StagingUp_Settings {
         <?php
     }
 
+    /**
+     * Renders a subsection heading.
+     * 
+     * @param array $args Arguments to render the field with.
+     * 
+     * @since 1.0
+     */
     public static function render_subsection_heading( $args ) {
         ?>
         <hr>
@@ -431,6 +470,13 @@ class StagingUp_Settings {
         <?php
     }
     
+    /**
+     * Renders a text field.
+     * 
+     * @param array $args Arguments to render the field with.
+     * 
+     * @since 1.0
+     */
     public static function render_text_field( $args ) {
         $name = esc_attr( $args['name'] );
         $value = esc_attr( $args['value'] );
@@ -439,6 +485,13 @@ class StagingUp_Settings {
         <?php
     }
 
+    /**
+     * Renders a checkbox field.
+     * 
+     * @param array $args Arguments to render the field with.
+     * 
+     * @since 1.0
+     */
     public static function render_checkbox_field( $args ) {
         $name = esc_attr( $args['name'] );
         $value = esc_attr( $args['value'] ) == 'on' ? true : false;
@@ -447,6 +500,13 @@ class StagingUp_Settings {
         <?php
     }
 
+    /**
+     * Renders a color picker field.
+     * 
+     * @param array $args Arguments to render the field with.
+     * 
+     * @since 1.0
+     */
     public static function render_color_field( $args ) {
         $name = esc_attr( $args['name'] );
         $value = esc_attr( $args['value'] );
@@ -455,6 +515,13 @@ class StagingUp_Settings {
         <?php
     }
 
+    /**
+     * Renders a select field.
+     * 
+     * @param array $args Arguments to render the field with.
+     * 
+     * @since 1.0
+     */
     public static function render_select_field( $args ) {
         $name = esc_attr( $args['name'] );
         $value = esc_attr( $args['value'] );
@@ -471,6 +538,11 @@ class StagingUp_Settings {
         <?php
     }
 
+    /**
+     * Renders login page layout inputs.
+     * 
+     * @since 1.0
+     */
     public static function render_login_page_layout_inputs() {
         $options = get_option( 'staging_upseller' );
 
@@ -542,14 +614,6 @@ class StagingUp_Settings {
         <input class="button button-secondary" type="button" id="btn-sidebar-left-ad-area-1-right" value="Sidebar Left, Ad Area 1 Right" />
         <input class="button button-secondary" type="button" id="btn-sidebar-right-ad-area-1-left" value="Sidebar Right, Ad Area 1 Left" />
         <input class="button button-secondary" type="button" id="btn-sidebar-center-ad-area-1-left-ad-area-2-right" value="Sidebar Center, Ad Area 1 Left, Ad Area 2 Right" />
-        <?php
-    }
-
-    public static function render_login_ad_area_iframe_url_field( $args ) {
-        $name = esc_attr( $args['name'] );
-        $value = esc_attr( $args['value'] );
-        ?>
-        <input id="<?php echo $name ?>" name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
         <?php
     }
 }

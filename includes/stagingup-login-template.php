@@ -355,6 +355,13 @@ $rememberme = ! empty( $_POST['rememberme'] );
 wp_enqueue_script( 'user-profile' );
 
 
+/**
+ * Renders the login form header.
+ * 
+ * @param array $data The data used when rendering the login form header.
+ * 
+ * @since 1.0
+ */
 function stagingup_login_form_header( $data = array() ) {
     $data['title'] = isset( $data['title'] ) ? $data['title'] : 'Log In';
     $data['message'] = isset( $data['message'] ) ? $data['message'] : '';
@@ -512,6 +519,11 @@ function stagingup_login_form_header( $data = array() ) {
         }
 }
 
+/**
+ * Renders the login form body.
+ * 
+ * @since 1.0
+ */
 function stagingup_login_form_body( $data = array() ) {
     $data['title'] = isset( $data['title'] ) ? $data['title'] : 'Log In';
     $data['message'] = isset( $data['message'] ) ? $data['message'] : '';
@@ -643,6 +655,13 @@ function stagingup_login_form_footer() {
     <?php
 }
 
+/**
+ * Renders the login form.
+ * 
+ * @param array $data Data to provide to the header, body, and footer of the login form.
+ * 
+ * @since 1.0
+ */
 function stagingup_login_form( $data = array() ) {
     $data['title'] = isset( $data['title'] ) ? $data['title'] : 'Log In';
     $data['message'] = isset( $data['message'] ) ? $data['message'] : '';
@@ -660,6 +679,11 @@ $options = get_option( 'staging_upseller' );
 
 $login_page_areas = array();
 
+/**
+ * Converts x,y index (coordinates) to a 1D index.
+ * 
+ * @since 1.0
+ */
 function stagingup_2d_to_1d($width, $x, $y) {
     return $width * $y + $x;
 }
