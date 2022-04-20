@@ -8,7 +8,7 @@
  * Requires PHP:      7.2
  * Author:            York Computer Solutions LLC
  * Author URI:        https://yorkcs.com/
- * License:           GPLv3
+ * License:           GPLv3 or later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       staging-upseller
  * Domain Path:       /languages

@@ -82,7 +82,7 @@ class StagingUp_Settings {
         ?>
         <div class="wrap">
             <img src="<?php echo esc_url( STAGINGUP_URL . '/assets/images/staging-upseller-logo-full.svg' ); ?>" alt="Staging Upseller" style="width: 400px; height: auto; padding-top: 16px;" />
-            <p><i>Developed by <a href="https://yorkcs.com/">York Computer Solutions LLC</a></i></p>
+            <p><i>Developed by <a href="https://yorkcs.com/">York Computer Solutions LLC</a></i> | <i><a href="https://github.com/yorkcomputersolutions/staging-upseller/" target="_blank">GitHub Repository</a></i> | <i><a href="https://yorkcs.com/staging-upseller/" target="_blank">Homepage</a></i></p>
             <p>Please click the <i>Save Changes</i> button at the bottom of the page when you're finished changing settings.</p>
 
             <form action="options.php" method="post">

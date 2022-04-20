@@ -1,4 +1,4 @@
-Staging Upseller - Upsell opportunities for staging sites
+Staging Upseller - Makes adding upsell opportunities for staging sites easy
 
 Copyright 2021 by the contributors
 
