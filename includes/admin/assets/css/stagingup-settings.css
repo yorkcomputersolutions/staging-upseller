@@ -1,0 +1,231 @@
+
+.wp-picker-container {
+    position: relative;
+}
+
+.wp-picker-container.wp-picker-active {
+    z-index: 100;
+}
+
+
+.stagingup-image-upload-preview {
+    width: 128px;
+    height: auto;
+}
+
+
+.stagingup-css-editor-wrap #editing, .stagingup-css-editor-wrap #highlighting {
+    /* Both elements need the same text and space styling so they are directly on top of each other */
+    margin: 0;
+    padding: 4px;
+    border: 0;
+    width: calc(100% - 32px);
+    height: 500px;
+}
+.stagingup-css-editor-wrap #editing, .stagingup-css-editor-wrap #highlighting, .stagingup-css-editor-wrap #highlighting * {
+    /* Also add text styles to highlighing tokens */
+    font-size: 14px;
+    font-family: monospace;
+    line-height: 20px;
+    tab-size: 2;
+}
+
+
+.stagingup-css-editor-wrap #editing, .stagingup-css-editor-wrap #highlighting {
+    /* In the same place */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.stagingup-css-editor-wrap #highlighting-content {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Move the textarea in front of the result */
+
+.stagingup-css-editor-wrap #editing {
+    z-index: 1;
+}
+.stagingup-css-editor-wrap #highlighting {
+    z-index: 0;
+}
+
+
+/* Make textarea almost completely transparent */
+
+.stagingup-css-editor-wrap #editing {
+    color: transparent;
+    background: transparent;
+    caret-color: white; /* Or choose your favourite color */
+}
+
+/* Can be scrolled */
+.stagingup-css-editor-wrap #editing, .stagingup-css-editor-wrap #highlighting {
+    overflow: auto;
+    white-space: nowrap; /* Allows textarea to scroll horizontally */
+}
+
+/* No resize on textarea */
+.stagingup-css-editor-wrap #editing {
+    resize: none;
+}
+
+/* Paragraphs; First Image */
+.stagingup-css-editor-wrap * {
+    font-family: "Fira Code", monospace;
+}
+.stagingup-css-editor-wrap p code {
+    border-radius: 2px;
+    background-color: #eee;
+    color: #111;
+}
+
+
+
+/* PRISM THEME */
+/**
+ * atom-dark theme for `prism.js`
+ * Based on Atom's `atom-dark` theme: https://github.com/atom/atom-dark-syntax
+ * @author Joe Gibson (@gibsjose)
+ */
+
+ code[class*="language-"],
+ pre[class*="language-"] {
+     color: #c5c8c6;
+     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+     font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
+     direction: ltr;
+     text-align: left;
+     white-space: pre;
+     word-spacing: normal;
+     word-break: normal;
+     line-height: 1.5;
+ 
+     -moz-tab-size: 4;
+     -o-tab-size: 4;
+     tab-size: 4;
+ 
+     -webkit-hyphens: none;
+     -moz-hyphens: none;
+     -ms-hyphens: none;
+     hyphens: none;
+ }
+ 
+ /* Code blocks */
+ pre[class*="language-"] {
+     padding: 1em;
+     margin: .5em 0;
+     overflow: auto;
+     border-radius: 0.3em;
+ }
+ 
+ :not(pre) > code[class*="language-"],
+ pre[class*="language-"] {
+     background: #1d1f21;
+ }
+ 
+ /* Inline code */
+ :not(pre) > code[class*="language-"] {
+     padding: .1em;
+     border-radius: .3em;
+ }
+ 
+ .token.comment,
+ .token.prolog,
+ .token.doctype,
+ .token.cdata {
+     color: #7C7C7C;
+ }
+ 
+ .token.punctuation {
+     color: #c5c8c6;
+ }
+ 
+ .namespace {
+     opacity: .7;
+ }
+ 
+ .token.property,
+ .token.keyword,
+ .token.tag {
+     color: #96CBFE;
+ }
+ 
+ .token.class-name {
+     color: #FFFFB6;
+     text-decoration: underline;
+ }
+ 
+ .token.boolean,
+ .token.constant {
+     color: #99CC99;
+ }
+ 
+ .token.symbol,
+ .token.deleted {
+     color: #f92672;
+ }
+ 
+ .token.number {
+     color: #FF73FD;
+ }
+ 
+ .token.selector,
+ .token.attr-name,
+ .token.string,
+ .token.char,
+ .token.builtin,
+ .token.inserted {
+     color: #A8FF60;
+ }
+ 
+ .token.variable {
+     color: #C6C5FE;
+ }
+ 
+ .token.operator {
+     color: #EDEDED;
+ }
+ 
+ .token.entity {
+     color: #FFFFB6;
+     cursor: help;
+ }
+ 
+ .token.url {
+     color: #96CBFE;
+ }
+ 
+ .language-css .token.string,
+ .style .token.string {
+     color: #87C38A;
+ }
+ 
+ .token.atrule,
+ .token.attr-value {
+     color: #F9EE98;
+ }
+ 
+ .token.function {
+     color: #DAD085;
+ }
+ 
+ .token.regex {
+     color: #E9C062;
+ }
+ 
+ .token.important {
+     color: #fd971f;
+ }
+ 
+ .token.important,
+ .token.bold {
+     font-weight: bold;
+ }
+ 
+ .token.italic {
+     font-style: italic;
+ }
