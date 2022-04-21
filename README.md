@@ -11,7 +11,7 @@ If you are not a developer, please use the [Staging Upseller plugin page](https:
 To disclose a security issue to Jared, [please fill out this contact form](https://yorkcs.com/contact-us/).
 
 ## Support
-This repository is not suitable for support. Please don't use our issue tracker for support requests, but for core Staging Upseller issues only. Support can take place through the appropriate channels:
+This repository is not suitable for support. Please don't use our issue tracker for support requests, but for core Staging Upseller issues only.
 
 Support requests in issues on this repository will be closed on sight.
 
