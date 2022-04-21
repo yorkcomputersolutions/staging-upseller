@@ -117,6 +117,16 @@ class Staging_Upseller {
      * @since 1.0
      */
     private function init_hooks() {
+        register_deactivation_hook( STAGINGUP_FILE, function() {
+            $options = get_option( 'staging_upseller', null );
+
+            if ( isset( $options ) ) {
+                if ( $options['purge_settings_on_deactivation'] === 'on' ) {
+                    delete_option( 'staging_upseller' );
+                }
+            }
+        } );
+
         add_action( 'init', array( $this, 'init' ), 0 );
     }
 

@@ -146,6 +146,25 @@ class StagingUp_Settings {
         );
 
 
+        add_settings_section(
+            'stagingup_cleanup_settings_section',
+            'Cleanup Settings',
+            array( __CLASS__, '__return_false' ),
+            'staging-upseller'
+        );
+
+        add_settings_field(
+            'purge_settings_on_deactivation',
+            'Purge Settings on Deactivation?',
+            array( __CLASS__, 'render_checkbox_field' ),
+            'staging-upseller',
+            'stagingup_cleanup_settings_section',
+            array(
+                'name' => 'staging_upseller[purge_settings_on_deactivation]',
+                'value' => $options[ 'purge_settings_on_deactivation' ] ?? false,
+            )
+        );
+
 
         add_settings_section(
             'stagingup_login_settings_section',

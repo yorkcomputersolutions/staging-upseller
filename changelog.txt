@@ -1,0 +1,11 @@
+Staging Upseller
+
+CHANGELOG
+
+================
+
+1.0 - Initial release (4/20/22)
+
+1.0.1 - Added plugin deactivation hook and purge data option for deactivation.
+
+
