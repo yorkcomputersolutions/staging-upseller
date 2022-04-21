@@ -8,7 +8,7 @@ If you are not a developer, please use the [Staging Upseller plugin page](https:
 * [Staging Upseller Documentation](https://yorkcs.com/staging-upseller/)
 
 ## Reporting Security Issues
-To disclose a security issue to Jared, [please fill out the contact form at](https://yorkcs.com/contact-us/).
+To disclose a security issue to Jared, [please fill out this contact form](https://yorkcs.com/contact-us/).
 
 ## Support
 This repository is not suitable for support. Please don't use our issue tracker for support requests, but for core Staging Upseller issues only. Support can take place through the appropriate channels:
